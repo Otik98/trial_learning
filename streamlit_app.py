@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from streamlit_player import st_player
+from rag_logic_mj import load_models_and_build_index, retrieve_and_rerank, generate_answer
 
 st.set_page_config(
     page_title="Michael Jackson Project",
