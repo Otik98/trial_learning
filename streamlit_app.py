@@ -69,7 +69,7 @@ youtube_links = {
     5: "https://www.youtube.com/watch?v=5X-Mrc2l1d0",
     6: "https://www.youtube.com/watch?v=yURRmWtbTbo",
     7: "https://www.youtube.com/watch?v=HzZ_urpj4As",
-    8: "https://www.youtube.com/watch?v=8C1XXUMbqTo",
+    8: "https://www.youtube.com/watch?v=Y_8mUx4VOmo",
     9: "https://www.youtube.com/watch?v=PivWY9wn5ps",
     10: "https://www.youtube.com/watch?v=1ZZQuj6htF4"
 }
