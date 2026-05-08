@@ -34,18 +34,19 @@ st.markdown(
         color: #f7f1df !important;
     }
 
+    a {
+        color: #ffcc33 !important;
+    }
+
     .stAlert {
         background-color: rgba(120, 0, 0, 0.35) !important;
         border: 1px solid #c9a227 !important;
         border-radius: 12px;
     }
-
-    [data-testid="stTable"] {
-        background-color: rgba(0, 0, 0, 0.45);
-        border: 1px solid #c9a227;
-        border-radius: 12px;
-    }
-
+    </style>
+    """,
+    unsafe_allow_html=True
+)
     a {
         color: #ffcc33 !important;
     }
