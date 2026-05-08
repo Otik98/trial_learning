@@ -114,6 +114,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+st.sidebar.image("assets/mj_logo.png", width=240)
+
 st.title("Michael Jackson RAG Chatbot")
 st.caption("Ask questions using a PDF-based knowledge base.")
 
