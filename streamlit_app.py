@@ -47,13 +47,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-    a {
-        color: #ffcc33 !important;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+
 # Sidebar logo
 st.sidebar.image("assets/mj_logo.png", width=240)
 
