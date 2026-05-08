@@ -69,9 +69,6 @@ st.markdown(
             Это финальная страница моего проекта.<br>
             Спасибо за этот курс, за знания и за возможность создать свой сайт.
         </div>
-        <div class="final-small">
-            The King of Pop never really leaves the stage.
-        </div>
     </div>
     """,
     unsafe_allow_html=True
