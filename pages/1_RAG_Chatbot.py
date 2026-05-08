@@ -12,6 +12,108 @@ st.set_page_config(
     layout="centered"
 )
 
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background:
+            radial-gradient(circle at top center, rgba(255, 0, 0, 0.28), transparent 30%),
+            radial-gradient(circle at bottom right, rgba(245, 215, 110, 0.22), transparent 35%),
+            linear-gradient(135deg, #020202 0%, #170000 45%, #000000 100%);
+    }
+
+    [data-testid="stHeader"] {
+        background: rgba(0, 0, 0, 0);
+    }
+
+    .block-container {
+        background:
+            linear-gradient(145deg, rgba(0, 0, 0, 0.94), rgba(55, 0, 0, 0.90), rgba(10, 6, 0, 0.94)) !important;
+        border: 1px solid rgba(245, 215, 110, 0.55);
+        border-radius: 30px;
+        padding: 3rem 4rem !important;
+        box-shadow:
+            0 0 35px rgba(255, 204, 51, 0.25),
+            0 0 70px rgba(180, 0, 0, 0.35);
+    }
+
+    .block-container h1 {
+        color: #f5d76e !important;
+        text-align: center;
+        font-size: 3.2rem !important;
+        text-shadow:
+            0 0 12px rgba(245, 215, 110, 0.75),
+            0 0 28px rgba(255, 0, 0, 0.65);
+    }
+
+    .block-container h2,
+    .block-container h3 {
+        color: #ffcc33 !important;
+        text-shadow: 0 0 12px rgba(180, 25, 25, 0.55);
+    }
+
+    .block-container p,
+    .block-container li,
+    .block-container label,
+    .block-container span {
+        color: #fff4d6 !important;
+        font-weight: 500;
+    }
+
+    .block-container [data-testid="stAlert"] {
+        background: rgba(120, 0, 0, 0.55) !important;
+        border: 1px solid #c9a227 !important;
+        border-radius: 16px !important;
+        box-shadow: 0 0 18px rgba(201, 162, 39, 0.30);
+    }
+
+    .block-container [data-testid="stExpander"] {
+        background: rgba(0, 0, 0, 0.55) !important;
+        border: 1px solid rgba(245, 215, 110, 0.45) !important;
+        border-radius: 16px !important;
+    }
+
+    .block-container .stButton > button {
+        background: linear-gradient(135deg, #1a0000 0%, #050505 100%) !important;
+        color: #f5d76e !important;
+        border: 1px solid #c9a227 !important;
+        border-radius: 14px !important;
+        box-shadow: 0 0 18px rgba(201, 162, 39, 0.35);
+        font-weight: 800 !important;
+    }
+
+    .block-container .stButton > button p {
+        color: #f5d76e !important;
+        font-weight: 800 !important;
+    }
+
+    .block-container .stButton > button:hover {
+        background: linear-gradient(135deg, #4a0000 0%, #130000 100%) !important;
+        box-shadow: 0 0 28px rgba(255, 204, 51, 0.75);
+    }
+
+    .block-container input {
+        background: #fff4d6 !important;
+        color: #111111 !important;
+        border: 1px solid #f5d76e !important;
+        border-radius: 14px !important;
+    }
+
+    .block-container [data-testid="stChatMessage"] {
+        background: rgba(0, 0, 0, 0.45) !important;
+        border: 1px solid rgba(245, 215, 110, 0.25);
+        border-radius: 18px;
+        padding: 1rem;
+    }
+
+    hr {
+        border-color: rgba(245, 215, 110, 0.45) !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 st.title("Michael Jackson RAG Chatbot")
 st.caption("Ask questions using a PDF-based knowledge base.")
 
