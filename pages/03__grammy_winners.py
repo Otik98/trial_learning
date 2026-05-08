@@ -57,12 +57,23 @@ st.subheader(f"{selected_category} — {selected_year}")
 
 if not filtered.empty:
     for _, row in filtered.iterrows():
-        st.success(row["Winner"])
+
+        if row["Category"] == "Song of the Year":
+            display_winner = str(row["Artist"]).replace('" *', '').replace('"', '')
+            display_artist = str(row["Winner"]).replace(
+                "Michael JacksonLionel Richie",
+                "Michael Jackson, Lionel Richie"
+            )
+        else:
+            display_winner = row["Winner"]
+            display_artist = row["Artist"]
+
+        st.success(display_winner)
 
         col1, col2 = st.columns(2)
 
         with col1:
-            st.metric("Artist", row["Artist"])
+            st.metric("Artist / Creator", display_artist)
 
         with col2:
             st.metric("Ceremony", f"{int(row['Ceremony_Number'])}th")
@@ -79,7 +90,7 @@ if not filtered.empty:
 
 else:
     st.warning("No winner found for this year/category.")
-
+    
 st.divider()
 
 st.subheader("Michael Jackson Grammy highlight")
