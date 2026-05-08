@@ -12,112 +12,117 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    /* MAIN BACKGROUND ONLY */
-    [data-testid="stMain"] {
+    /* Background behind main content */
+    .stApp {
         background:
-            radial-gradient(circle at top center, rgba(255, 0, 0, 0.28), transparent 32%),
-            radial-gradient(circle at bottom right, rgba(245, 215, 110, 0.22), transparent 35%),
-            linear-gradient(135deg, #020202 0%, #170000 45%, #050505 100%);
+            radial-gradient(circle at top center, rgba(255, 0, 0, 0.35), transparent 30%),
+            radial-gradient(circle at bottom right, rgba(245, 215, 110, 0.28), transparent 35%),
+            linear-gradient(135deg, #020202 0%, #170000 45%, #000000 100%);
     }
 
     [data-testid="stHeader"] {
         background: rgba(0, 0, 0, 0);
     }
 
-    [data-testid="stMainBlockContainer"] {
-        background: rgba(0, 0, 0, 0.35);
-        border: 1px solid rgba(245, 215, 110, 0.35);
-        border-radius: 28px;
-        padding: 3rem 4rem;
-        box-shadow: 0 0 35px rgba(180, 25, 25, 0.35);
+    /* Main card */
+    .block-container {
+        background:
+            linear-gradient(145deg, rgba(0, 0, 0, 0.94), rgba(55, 0, 0, 0.90), rgba(10, 6, 0, 0.94)) !important;
+        border: 1px solid rgba(245, 215, 110, 0.55);
+        border-radius: 30px;
+        padding: 3rem 4rem !important;
+        box-shadow:
+            0 0 35px rgba(255, 204, 51, 0.25),
+            0 0 70px rgba(180, 0, 0, 0.35);
     }
 
-    [data-testid="stMain"] h1 {
+    /* Titles */
+    .block-container h1 {
         color: #f5d76e !important;
         text-align: center;
-        font-size: 3.4rem !important;
+        font-size: 3.5rem !important;
         text-shadow:
-            0 0 10px rgba(245, 215, 110, 0.55),
-            0 0 25px rgba(180, 25, 25, 0.55);
+            0 0 12px rgba(245, 215, 110, 0.75),
+            0 0 28px rgba(255, 0, 0, 0.65);
     }
 
-    [data-testid="stMain"] h2,
-    [data-testid="stMain"] h3 {
+    .block-container h2,
+    .block-container h3 {
         color: #ffcc33 !important;
-        text-shadow: 0 0 10px rgba(180, 25, 25, 0.4);
+        text-shadow: 0 0 12px rgba(180, 25, 25, 0.55);
     }
 
-    [data-testid="stMain"] p,
-    [data-testid="stMain"] li,
-    [data-testid="stMain"] label {
-        color: #f7f1df !important;
+    /* Text */
+    .block-container p,
+    .block-container li,
+    .block-container label {
+        color: #fff4d6 !important;
+        font-weight: 500;
     }
 
-    [data-testid="stMain"] a {
-        color: #ffcc33 !important;
-        font-weight: 700;
+    .block-container a {
+        color: #ffd84d !important;
+        font-weight: 800;
     }
 
-    [data-testid="stMain"] [data-testid="stAlert"] {
-        background: rgba(90, 0, 0, 0.45) !important;
-        border: 1px solid #c9a227 !important;
-        border-radius: 16px !important;
-        box-shadow: 0 0 18px rgba(201, 162, 39, 0.22);
-    }
-
-    [data-testid="stMain"] iframe {
+    /* YouTube player */
+    .block-container iframe {
         border: 2px solid #c9a227 !important;
         border-radius: 22px !important;
         box-shadow:
-            0 0 20px rgba(245, 215, 110, 0.35),
-            0 0 45px rgba(180, 25, 25, 0.45);
+            0 0 25px rgba(245, 215, 110, 0.45),
+            0 0 55px rgba(180, 0, 0, 0.55);
     }
 
-    [data-testid="stMain"] hr {
-        border-color: rgba(245, 215, 110, 0.35) !important;
+    /* Alerts / info boxes */
+    .block-container [data-testid="stAlert"] {
+        background: rgba(120, 0, 0, 0.55) !important;
+        border: 1px solid #c9a227 !important;
+        border-radius: 16px !important;
+        box-shadow: 0 0 18px rgba(201, 162, 39, 0.30);
     }
 
-    [data-testid="stMain"] [data-testid="stChatInput"] {
+    /* Expander */
+    .block-container [data-testid="stExpander"] {
         background: rgba(0, 0, 0, 0.55) !important;
         border: 1px solid rgba(245, 215, 110, 0.45) !important;
-        border-radius: 18px !important;
-        box-shadow: 0 0 18px rgba(201, 162, 39, 0.25);
-    }
-
-    [data-testid="stMain"] [data-testid="stChatInput"] textarea {
-        color: #111827 !important;
-    }
-
-    [data-testid="stMain"] [data-testid="stExpander"] {
-        background: rgba(0, 0, 0, 0.45) !important;
-        border: 1px solid rgba(245, 215, 110, 0.35) !important;
         border-radius: 16px !important;
     }
 
-    [data-testid="stMain"] [data-testid="stMetric"] {
-        background: rgba(0, 0, 0, 0.45);
-        border: 1px solid rgba(245, 215, 110, 0.45);
-        padding: 15px;
-        border-radius: 18px;
-        box-shadow: 0 0 15px rgba(201, 162, 39, 0.22);
-    }
-
-    [data-testid="stMain"] [data-testid="stMetricValue"] {
-        color: #f5d76e !important;
-    }
-
-    [data-testid="stMain"] .stButton > button {
-        background: linear-gradient(135deg, #120000 0%, #050505 100%) !important;
+    /* Question buttons */
+    .block-container .stButton > button {
+        background: linear-gradient(135deg, #1a0000 0%, #050505 100%) !important;
         color: #f5d76e !important;
         border: 1px solid #c9a227 !important;
         border-radius: 14px !important;
         box-shadow: 0 0 18px rgba(201, 162, 39, 0.35);
-        font-weight: 700 !important;
+        font-weight: 800 !important;
     }
 
-    [data-testid="stMain"] .stButton > button p {
+    .block-container .stButton > button p {
         color: #f5d76e !important;
-        font-weight: 700 !important;
+        font-weight: 800 !important;
+    }
+
+    .block-container .stButton > button:hover {
+        background: linear-gradient(135deg, #4a0000 0%, #130000 100%) !important;
+        box-shadow: 0 0 28px rgba(255, 204, 51, 0.75);
+    }
+
+    /* Chat input */
+    .block-container [data-testid="stChatInput"] {
+        background: rgba(0, 0, 0, 0.65) !important;
+        border: 1px solid rgba(245, 215, 110, 0.55) !important;
+        border-radius: 18px !important;
+        box-shadow: 0 0 18px rgba(201, 162, 39, 0.35);
+    }
+
+    .block-container [data-testid="stChatInput"] textarea {
+        color: #111827 !important;
+    }
+
+    hr {
+        border-color: rgba(245, 215, 110, 0.45) !important;
     }
     </style>
     """,
