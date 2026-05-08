@@ -67,3 +67,84 @@ if song is not None:
 
     st_player("https://www.youtube.com/watch?v=yURRmWtbTbo")
 
+
+st.divider()
+st.header("Ask about Michael Jackson")
+st.caption("The chatbot answers using article sources and shows links.")
+
+@st.cache_resource
+def load_rag():
+    with st.spinner("Loading Michael Jackson RAG assistant..."):
+        return load_models_and_build_index()
+
+try:
+    rag_components = load_rag()
+
+    if "mj_messages" not in st.session_state:
+        st.session_state.mj_messages = [
+            {
+                "role": "assistant",
+                "content": "Hi! Ask me about Michael Jackson's biography, songs, albums, awards, or influence."
+            }
+        ]
+
+    for message in st.session_state.mj_messages:
+        with st.chat_message(message["role"]):
+            if isinstance(message["content"], dict):
+                st.markdown(message["content"]["answer"])
+
+                with st.expander("Sources"):
+                    for chunk in message["content"]["context"]:
+                        st.markdown(f"**Source:** [{chunk['source']}]({chunk['url']})")
+                        st.write(chunk["text"])
+            else:
+                st.markdown(message["content"])
+
+    def handle_user_query(prompt):
+        st.session_state.mj_messages.append({"role": "user", "content": prompt})
+
+        with st.chat_message("user"):
+            st.markdown(prompt)
+
+        with st.chat_message("assistant"):
+            with st.spinner("Searching sources..."):
+                context = retrieve_and_rerank(prompt, rag_components)
+                answer = generate_answer(
+                    prompt,
+                    context,
+                    groq_client=rag_components["groq_client"]
+                )
+
+            st.markdown(answer)
+
+            with st.expander("Sources"):
+                for chunk in context:
+                    st.markdown(f"**Source:** [{chunk['source']}]({chunk['url']})")
+                    st.write(chunk["text"])
+
+        st.session_state.mj_messages.append({
+            "role": "assistant",
+            "content": {
+                "answer": answer,
+                "context": context
+            }
+        })
+
+    col1, col2, col3 = st.columns(3)
+
+    if col1.button("Who was Michael Jackson?"):
+        handle_user_query("Who was Michael Jackson?")
+
+    if col2.button("What made Thriller important?"):
+        handle_user_query("What made Thriller important?")
+
+    if col3.button("How many GRAMMYs did he win?"):
+        handle_user_query("How many GRAMMYs did Michael Jackson win?")
+
+    if prompt := st.chat_input("Ask something about Michael Jackson..."):
+        handle_user_query(prompt)
+
+except Exception as e:
+    st.error("RAG chatbot is not ready yet.")
+    st.write(e)
+    st.info("Check that data/mj_articles.csv exists and GROQ_API_KEY is set.")
