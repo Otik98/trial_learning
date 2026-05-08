@@ -101,8 +101,32 @@ mj_rows = df[
 ]
 
 if not mj_rows.empty:
+    mj_display = mj_rows[["Year", "Category", "Winner", "Artist", "Ceremony_Number"]].copy()
+
+    # Fix display for Song of the Year rows
+    mask = mj_display["Category"] == "Song of the Year"
+
+    mj_display.loc[mask, "Winner"] = (
+        mj_display.loc[mask, "Artist"]
+        .astype(str)
+        .str.replace('" *', '', regex=False)
+        .str.replace('"', '', regex=False)
+    )
+
+    mj_display.loc[mask, "Artist"] = (
+        mj_display.loc[mask, "Artist"]
+        .astype(str)
+        .replace("We Are the World\" *", "Michael Jackson, Lionel Richie")
+    )
+
+    # Specific clean-up for this dataset row
+    mj_display.loc[
+        (mj_display["Year"] == 1986) & (mj_display["Category"] == "Song of the Year"),
+        "Artist"
+    ] = "Michael Jackson, Lionel Richie"
+
     st.dataframe(
-        mj_rows[["Year", "Category", "Winner", "Artist", "Ceremony_Number"]],
+        mj_display,
         use_container_width=True
     )
 else:
