@@ -10,45 +10,45 @@ import pandas as pd
 st.set_page_config(page_title="Michael Jackson Project", layout="centered")
 
 st.title("Michael Jackson Song Finder")
-st.info("Choose a year and find the most popular Michael Jackson song from the dataset.")
+st.info("Choose a rank and find the most popular Michael Jackson song from the dataset.")
 
 df = pd.read_csv("data/michael_jackson_simple.csv")
 
 # Clean columns
-df["Year"] = pd.to_numeric(df["Year"], errors="coerce")
-df["Popularity"] = pd.to_numeric(df["Popularity"], errors="coerce")
-df = df.dropna(subset=["Year", "Popularity"])
-df["Year"] = df["Year"].astype(int)
+df["rank"] = pd.to_numeric(df["rank"], errors="coerce")
+df["daily_streams"] = pd.to_numeric(df["daily_streams"], errors="coerce")
+df = df.dropna(subset=["rank", "daily_streams"])
+df["rank"] = df["rank"].astype(int)
 
-# Unique years only
-years = sorted(df["Year"].unique())
+# Unique ranks only
+ranks = sorted(df["rank"].unique())
 
-selected_year = st.select_slider(
-    "Choose year:",
-    options=years
+selected_rank = st.select_slider(
+    "Choose rank:",
+    options=ranks
 )
 
-filtered = df[df["Year"] == selected_year]
+filtered = df[df["rank"] == selected_rank]
 
 if not filtered.empty:
-    best_song = filtered.sort_values("Popularity", ascending=False).iloc[0]
+    best_song = filtered.sort_values("Daily Streams", ascending=False).iloc[0]
 
-    st.subheader(f"Best song in {selected_year}")
+    st.subheader(f"Best song in {selected_rank}")
 
     st.success(best_song["Title"])
 
     col1, col2 = st.columns(2)
 
     with col1:
-        st.metric("Popularity", int(best_song["Popularity"]))
+        st.metric("Daily Streams", int(best_song["daily_streams"]))
 
     with col2:
-        st.metric("Year", selected_year)
+        st.metric("Rank", selected_rank)
 
     st.write("Artist:", best_song["Artist"])
 
 else:
-    st.warning("No song found for this year.")
+    st.warning("No song found for this rank.")
 
 with st.expander("Show full dataset"):
     st.dataframe(df)
