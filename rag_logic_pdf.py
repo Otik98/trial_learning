@@ -124,7 +124,7 @@ def load_models_and_build_index():
     }
 
 
-def retrieve_and_rerank(query, rag_components, k_retriever=30, k_reranker=5):
+def retrieve_and_rerank(query, rag_components, k_retriever=8, k_reranker=3):
     """Retrieve relevant chunks using FAISS and rerank them with CrossEncoder."""
     embedding_model = rag_components["embedding_model"]
     cross_encoder = rag_components["cross_encoder"]
