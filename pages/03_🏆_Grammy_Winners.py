@@ -12,6 +12,16 @@ st.set_page_config(
 st.sidebar.image("assets/mj_logo.png", width=240)
 
 st.title("Grammy Winners Explorer")
+
+st.image("assets/mj_star.jpg", width=330)
+
+st.markdown(
+    "Image: [Michael Jackson's star on the Hollywood Walk of Fame]"
+    "(https://commons.wikimedia.org/wiki/File:1993_walk_of_fame_michael_jackson.jpg) "
+    "by R-E-AL, licensed under "
+    "[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)."
+)
+
 st.info("Explore Grammy Big Four winners from 1959 to 2026.")
 
 df = pd.read_csv("data/grammy_big_four.csv")
