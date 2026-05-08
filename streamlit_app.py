@@ -1,11 +1,6 @@
 import streamlit as st
-
-st.title('Michael Jackson')
-
-st.info('This is trial bot for the MJ bio')
-
-import streamlit as st
 import pandas as pd
+from streamlit_player import st_player
 
 st.set_page_config(page_title="Michael Jackson Project", layout="centered")
 
@@ -17,8 +12,10 @@ df = pd.read_csv("data/michael_jackson_simple.csv")
 # Clean columns
 df["rank"] = pd.to_numeric(df["rank"], errors="coerce")
 df["daily_streams"] = pd.to_numeric(df["daily_streams"], errors="coerce")
+
 df = df.dropna(subset=["rank", "daily_streams"])
 df["rank"] = df["rank"].astype(int)
+df["daily_streams"] = df["daily_streams"].astype(int)
 
 # Unique ranks only
 ranks = sorted(df["rank"].unique())
@@ -30,30 +27,27 @@ selected_rank = st.select_slider(
 
 filtered = df[df["rank"] == selected_rank]
 
-#if not filtered.empty:
-#    best_song = filtered.sort_values("daily_streams", ascending=False).iloc[0]
+if not filtered.empty:
+    song = filtered.iloc[0]
 
-#    st.subheader(f"Best song in {selected_rank}")
+    st.subheader(f"Rank #{selected_rank}")
 
-#    st.success(best_song["Title"])
+    st.success(song["name"])
 
-#    col1, col2 = st.columns(2)
+    col1, col2 = st.columns(2)
 
-#    with col1:
-#        st.metric("Daily Streams", int(best_song["daily_streams"]))
-#
-#    with col2:
-#        st.metric("Rank", selected_rank)
-#
-#    st.write("Artist:", best_song["Artist"])
+    with col1:
+        st.metric("Daily Streams", f"{song['daily_streams']:,}")
 
-#else:
-#    st.warning("No song found for this rank.")
+    with col2:
+        st.metric("Total Streams", f"{song['streams']:,}")
 
-#with st.expander("Show full dataset"):
-#    st.dataframe(df)
+else:
+    st.warning("No song found for this rank.")
 
+with st.expander("Show full dataset"):
+    st.dataframe(df)
 
-from streamlit_player import st_player
+st.subheader("Listen / Watch")
 
-st_player('https://www.youtube.com/watch?v=yURRmWtbTbo&list=RDyURRmWtbTbo&start_radio=1')
+st_player("https://www.youtube.com/watch?v=yURRmWtbTbo")
