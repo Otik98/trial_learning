@@ -59,14 +59,33 @@ with st.sidebar:
         st.warning("No song found for this rank.")
 
 # Main page
+
+
+youtube_links = {
+    1: "https://www.youtube.com/watch?v=Zi_XLOBDo_Y",
+    2: "https://www.youtube.com/watch?v=oRdxUFDoQe0",
+    3: "https://www.youtube.com/watch?v=h_D3VFfhvs4",
+    4: "https://www.youtube.com/watch?v=sOnqjkJTMaA",
+    5: "https://www.youtube.com/watch?v=5X-Mrc2l1d0",
+    6: "https://www.youtube.com/watch?v=yURRmWtbTbo",
+    7: "https://www.youtube.com/watch?v=HzZ_urpj4As",
+    8: "https://www.youtube.com/watch?v=8C1XXUMbqTo",
+    9: "https://www.youtube.com/watch?v=PivWY9wn5ps",
+    10: "https://www.youtube.com/watch?v=1ZZQuj6htF4"
+}
+
 st.title("Michael Jackson Song Finder")
 st.info("Choose a rank from the left sidebar and find the most popular Michael Jackson song.")
 
 if song is not None:
-    st.subheader(f"Michael Jackson - Don't Stop 'Til You Get Enough")
+    st.subheader(f"Michael Jackson - {song['name']}")
 
-    st_player("https://www.youtube.com/watch?v=yURRmWtbTbo")
+    video_url = youtube_links.get(selected_rank)
 
+    if video_url:
+        st_player(video_url)
+    else:
+        st.warning("No video available for this rank yet.")
 
 st.divider()
 st.header("Ask about Michael Jackson")
