@@ -96,7 +96,7 @@ st.markdown(
 
 st.markdown(
     f"""
-<div class="final-box"><img class="final-photo" src="data:image/jpeg;base64,{mj_image}" alt="Michael Jackson photo"/><div class="final-title">This Is It</div><div class="final-text">Это финальная страница моего проекта.<br>Спасибо за этот курс, за полученные знания и за возможность применить новые навыки на практике.</div><div class="final-small">Keep the music alive ✨</div><div class="photo-credit">Photo: White House Photo Office / Wikimedia Commons, Public Domain</div></div>
+<div class="final-box"><img class="final-photo" src="data:image/jpeg;base64,{mj_image}" alt="Michael Jackson photo"/><div class="final-title">This Is It</div><div class="final-text">Это финальная страница моего проекта.<br>Спасибо за этот курс, за полученные знания и за возможность применить новые навыки на практике.</div><div class="final-small">Keep the music alive ✨</div><div class="final-quote">“This is our last and final tour...<br>You’ve all been wonderful, and we love you all.”<br><span>— Michael Jackson, Victory Tour, 1984</span></div><div class="photo-credit">Photo: White House Photo Office / Wikimedia Commons, Public Domain</div></div>
     """,
     unsafe_allow_html=True
 )
