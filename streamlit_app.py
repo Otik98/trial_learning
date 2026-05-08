@@ -12,11 +12,6 @@ st.sidebar.image("assets/mj_logo.png", width=240)
 
 st.title("Michael Jackson Biography")
 
-st.info(
-    "This page presents a short biography of Michael Jackson. "
-    "Use the sidebar to open the Song Finder and chatbot page."
-)
-
 st.header("Who was Michael Jackson?")
 
 st.markdown(
