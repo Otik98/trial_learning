@@ -63,5 +63,3 @@ if song is not None:
 
     st_player("https://www.youtube.com/watch?v=yURRmWtbTbo")
 
-with st.expander("Show full dataset"):
-    st.dataframe(df)
