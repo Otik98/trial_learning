@@ -57,7 +57,7 @@ try:
                 with st.expander("Retrieved sources"):
                     for chunk in message["content"]["context"]:
                         st.markdown(f"**Source:** {chunk['source']}")
-                        st.write(chunk["text"])
+                        st.write(chunk["text"][:500] + "...")
             else:
                 st.markdown(message["content"])
 
@@ -86,7 +86,7 @@ try:
             with st.expander("Retrieved sources"):
                 for chunk in context:
                     st.markdown(f"**Source:** {chunk['source']}")
-                    st.write(chunk["text"])
+                    st.write(chunk["text"][:500] + "...")
 
         st.session_state.mj_messages.append({
             "role": "assistant",
