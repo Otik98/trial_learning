@@ -7,6 +7,21 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #fffaf2;
+    }
+
+    [data-testid="stSidebar"] {
+        background-color: #f1f3f6;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Sidebar logo
 st.sidebar.image("assets/mj_logo.png", width=240)
 
