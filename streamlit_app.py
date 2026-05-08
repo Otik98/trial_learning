@@ -4,42 +4,51 @@ st.title('Michael Jackson')
 
 st.info('This is trial bot for the MJ bio')
 
-
 import streamlit as st
 import pandas as pd
 
-st.set_page_config(page_title="Michael Jackson Project", layout="wide")
+st.set_page_config(page_title="Michael Jackson Project", layout="centered")
 
-st.title("Michael Jackson Song Popularity Analysis")
-
-st.info("This app analyzes Michael Jackson songs using a Spotify dataset.")
+st.title("Michael Jackson Song Finder")
+st.info("Choose a year and find the most popular Michael Jackson song from the dataset.")
 
 df = pd.read_csv("data/michael_jackson_simple.csv")
 
-st.subheader("Dataset")
-st.dataframe(df)
+# Clean columns
+df["Year"] = pd.to_numeric(df["Year"], errors="coerce")
+df["Popularity"] = pd.to_numeric(df["Popularity"], errors="coerce")
+df = df.dropna(subset=["Year", "Popularity"])
+df["Year"] = df["Year"].astype(int)
 
-st.write(f"Number of songs in dataset: {len(df)}")
+# Unique years only
+years = sorted(df["Year"].unique())
 
-st.subheader("Top songs by popularity")
+selected_year = st.select_slider(
+    "Choose year:",
+    options=years
+)
 
-top_songs = df.sort_values("Popularity", ascending=False)
-
-st.dataframe(top_songs[["Title", "Year", "Popularity"]])
-
-st.bar_chart(top_songs.set_index("Title")["Popularity"])
-
-st.subheader("Find the most popular song by year")
-
-year = st.selectbox("Choose year", sorted(df["Year"].unique()))
-
-filtered = df[df["Year"] == year]
-
-st.dataframe(filtered[["Title", "Year", "Popularity"]])
+filtered = df[df["Year"] == selected_year]
 
 if not filtered.empty:
     best_song = filtered.sort_values("Popularity", ascending=False).iloc[0]
-    st.success(
-        f"Most popular song in {year}: {best_song['Title']} "
-        f"with popularity {best_song['Popularity']}"
-    )
+
+    st.subheader(f"Best song in {selected_year}")
+
+    st.success(best_song["Title"])
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.metric("Popularity", int(best_song["Popularity"]))
+
+    with col2:
+        st.metric("Year", selected_year)
+
+    st.write("Artist:", best_song["Artist"])
+
+else:
+    st.warning("No song found for this year.")
+
+with st.expander("Show full dataset"):
+    st.dataframe(df)
