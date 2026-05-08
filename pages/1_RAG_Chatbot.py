@@ -6,6 +6,7 @@ from rag_logic_pdf import (
     generate_answer
 )
 
+
 st.set_page_config(
     page_title="Michael Jackson RAG Chatbot",
     layout="centered"
@@ -43,9 +44,7 @@ try:
         st.session_state.mj_messages = [
             {
                 "role": "assistant",
-                "content": (
-                    "Hi! Ask me about Michael Jackson using the PDF knowledge base."
-                )
+                "content": "Hi! Ask me about Michael Jackson using the PDF knowledge base."
             }
         ]
 
@@ -57,7 +56,7 @@ try:
                 with st.expander("Retrieved sources"):
                     for chunk in message["content"]["context"]:
                         st.markdown(f"**Source:** {chunk['source']}")
-                        st.write(chunk["text"][:500] + "...")
+                        st.write(chunk["text"][:500] + " ... [source text shortened]")
             else:
                 st.markdown(message["content"])
 
@@ -86,7 +85,7 @@ try:
             with st.expander("Retrieved sources"):
                 for chunk in context:
                     st.markdown(f"**Source:** {chunk['source']}")
-                    st.write(chunk["text"][:500] + "...")
+                    st.write(chunk["text"][:500] + " ... [source text shortened]")
 
         st.session_state.mj_messages.append({
             "role": "assistant",
@@ -113,20 +112,20 @@ try:
     st.markdown("### Ask your own question")
 
     with st.form("rag_question_form"):
-    user_question = st.text_input(
-        "Type your question:",
-        placeholder="Ask something based on the PDF documents...",
-        label_visibility="collapsed"
-    )
+        user_question = st.text_input(
+            "Type your question:",
+            placeholder="Ask something based on the PDF documents...",
+            label_visibility="collapsed"
+        )
 
-    submitted = st.form_submit_button("Ask RAG Chatbot")
+        submitted = st.form_submit_button("Ask RAG Chatbot")
 
-if submitted:
-    if user_question.strip():
-        handle_user_query(user_question)
-    else:
-        st.warning("Please type a question first.")
-        
+    if submitted:
+        if user_question.strip():
+            handle_user_query(user_question)
+        else:
+            st.warning("Please type a question first.")
+
 
 except Exception as e:
     st.error("RAG chatbot is not ready yet.")
