@@ -9,6 +9,117 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+st.markdown(
+    """
+    <style>
+    /* MAIN BACKGROUND ONLY — sidebar is not touched */
+    [data-testid="stAppViewContainer"] {
+        background:
+            radial-gradient(circle at top center, rgba(255, 0, 0, 0.28), transparent 32%),
+            radial-gradient(circle at bottom right, rgba(245, 215, 110, 0.22), transparent 35%),
+            linear-gradient(135deg, #020202 0%, #170000 45%, #050505 100%);
+    }
+
+    [data-testid="stHeader"] {
+        background: rgba(0, 0, 0, 0);
+    }
+
+    /* Main content area */
+    [data-testid="stMainBlockContainer"] {
+        background: rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(245, 215, 110, 0.35);
+        border-radius: 28px;
+        padding: 3rem 4rem;
+        box-shadow: 0 0 35px rgba(180, 25, 25, 0.35);
+    }
+
+    /* Title */
+    [data-testid="stAppViewContainer"] h1 {
+        color: #f5d76e !important;
+        text-align: center;
+        font-size: 3.4rem !important;
+        text-shadow:
+            0 0 10px rgba(245, 215, 110, 0.55),
+            0 0 25px rgba(180, 25, 25, 0.55);
+    }
+
+    [data-testid="stAppViewContainer"] h2,
+    [data-testid="stAppViewContainer"] h3 {
+        color: #ffcc33 !important;
+        text-shadow: 0 0 10px rgba(180, 25, 25, 0.4);
+    }
+
+    /* Normal text */
+    [data-testid="stAppViewContainer"] p,
+    [data-testid="stAppViewContainer"] li,
+    [data-testid="stAppViewContainer"] label {
+        color: #f7f1df !important;
+    }
+
+    [data-testid="stAppViewContainer"] a {
+        color: #ffcc33 !important;
+        font-weight: 700;
+    }
+
+    /* Info / success / warning boxes */
+    [data-testid="stAlert"] {
+        background: rgba(90, 0, 0, 0.45) !important;
+        border: 1px solid #c9a227 !important;
+        border-radius: 16px !important;
+        box-shadow: 0 0 18px rgba(201, 162, 39, 0.22);
+    }
+
+    /* YouTube player */
+    iframe {
+        border: 2px solid #c9a227 !important;
+        border-radius: 22px !important;
+        box-shadow:
+            0 0 20px rgba(245, 215, 110, 0.35),
+            0 0 45px rgba(180, 25, 25, 0.45);
+    }
+
+    /* Divider */
+    hr {
+        border-color: rgba(245, 215, 110, 0.35) !important;
+    }
+
+    /* Chat input */
+    [data-testid="stChatInput"] {
+        background: rgba(0, 0, 0, 0.55) !important;
+        border: 1px solid rgba(245, 215, 110, 0.45) !important;
+        border-radius: 18px !important;
+        box-shadow: 0 0 18px rgba(201, 162, 39, 0.25);
+    }
+
+    [data-testid="stChatInput"] textarea {
+        color: #f7f1df !important;
+    }
+
+    /* Expander */
+    [data-testid="stExpander"] {
+        background: rgba(0, 0, 0, 0.45) !important;
+        border: 1px solid rgba(245, 215, 110, 0.35) !important;
+        border-radius: 16px !important;
+    }
+
+    /* Metrics */
+    [data-testid="stMetric"] {
+        background: rgba(0, 0, 0, 0.45);
+        border: 1px solid rgba(245, 215, 110, 0.45);
+        padding: 15px;
+        border-radius: 18px;
+        box-shadow: 0 0 15px rgba(201, 162, 39, 0.22);
+    }
+
+    [data-testid="stMetricValue"] {
+        color: #f5d76e !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
 st.sidebar.image("assets/mj_logo.png", width=240)
 
 # Load data
