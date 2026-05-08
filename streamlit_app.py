@@ -52,3 +52,8 @@ filtered = df[df["rank"] == selected_rank]
 
 #with st.expander("Show full dataset"):
 #    st.dataframe(df)
+
+
+from streamlit_player import st_player
+
+st_player('https://www.youtube.com/watch?v=yURRmWtbTbo&list=RDyURRmWtbTbo&start_radio=1')
