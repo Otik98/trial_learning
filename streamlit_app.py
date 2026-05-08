@@ -21,47 +21,47 @@ df["rank"] = df["rank"].astype(int)
 df["streams"] = df["streams"].astype(int)
 df["daily_streams"] = df["daily_streams"].astype(int)
 
-# Sidebar
-st.sidebar.title("Michael Jackson")
-st.sidebar.info("Choose song rank")
-
 min_rank = int(df["rank"].min())
 max_rank = int(df["rank"].max())
 
-selected_rank = st.sidebar.slider(
-    "Choose rank:",
-    min_value=min_rank,
-    max_value=max_rank,
-    value=min_rank,
-    step=1
-)
+# Sidebar
+with st.sidebar:
+    st.title("Michael Jackson")
+    st.info("Choose song rank")
+
+    selected_rank = st.slider(
+        "Choose rank:",
+        min_value=min_rank,
+        max_value=max_rank,
+        value=min_rank,
+        step=1
+    )
+
+    filtered = df[df["rank"] == selected_rank]
+
+    st.divider()
+
+    if not filtered.empty:
+        song = filtered.iloc[0]
+
+        st.subheader(f"Rank #{selected_rank}")
+        st.success(song["name"])
+
+        st.metric("Daily Streams", f"{song['daily_streams']:,}")
+        st.metric("Total Streams", f"{song['streams']:,}")
+
+    else:
+        song = None
+        st.warning("No song found for this rank.")
 
 # Main page
 st.title("Michael Jackson Song Finder")
 st.info("Choose a rank from the left sidebar and find the most popular Michael Jackson song.")
 
-filtered = df[df["rank"] == selected_rank]
-
-if not filtered.empty:
-    song = filtered.iloc[0]
-
-    st.subheader(f"Rank #{selected_rank}")
-    st.success(song["name"])
-
-    col1, col2 = st.columns(2)
-
-    with col1:
-        st.metric("Daily Streams", f"{song['daily_streams']:,}")
-
-    with col2:
-        st.metric("Total Streams", f"{song['streams']:,}")
-
+if song is not None:
     st.subheader(f"Michael Jackson - {song['name']}")
 
     st_player("https://www.youtube.com/watch?v=yURRmWtbTbo")
-
-else:
-    st.warning("No song found for this rank.")
 
 with st.expander("Show full dataset"):
     st.dataframe(df)
