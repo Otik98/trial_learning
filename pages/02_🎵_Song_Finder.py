@@ -131,11 +131,6 @@ st.markdown(
 
 st.sidebar.image("assets/mj_logo.png", width=240)
 
-st.sidebar.markdown(
-    '<div class="mj-glow">Michael<br>Jackson</div>',
-    unsafe_allow_html=True
-)
-
 # Load data
 df = pd.read_csv("data/michael_jackson_simple.csv")
 
