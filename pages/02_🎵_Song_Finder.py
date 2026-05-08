@@ -77,7 +77,6 @@ youtube_links = {
 }
 
 st.title("Michael Jackson Song Finder")
-st.info("Choose a rank from the left sidebar and find the most popular Michael Jackson song.")
 
 if song is not None:
     st.subheader(f"Michael Jackson - {song['name']}")
