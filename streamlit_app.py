@@ -10,33 +10,54 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    section.main {
+    /* Main page background only */
+    [data-testid="stMain"] {
         background:
             radial-gradient(circle at top, rgba(180, 25, 25, 0.35), transparent 35%),
             linear-gradient(135deg, #050505 0%, #120000 45%, #1a0f00 100%);
     }
 
+    /* Main content card */
+    [data-testid="stMainBlockContainer"] {
+        background: rgba(0, 0, 0, 0.25);
+        border-radius: 22px;
+        padding: 3rem 4rem;
+    }
+
+    /* Header transparent */
     [data-testid="stHeader"] {
         background: rgba(0, 0, 0, 0);
     }
 
-    section.main h1 {
+    /* Text only inside main page */
+    [data-testid="stMain"] h1 {
         color: #f5d76e !important;
-        text-shadow: 2px 2px 8px rgba(255, 0, 0, 0.45);
+        text-shadow: 2px 2px 10px rgba(255, 0, 0, 0.55);
     }
 
-    section.main h2,
-    section.main h3 {
-        color: #f2c94c !important;
+    [data-testid="stMain"] h2,
+    [data-testid="stMain"] h3 {
+        color: #ffcc33 !important;
     }
 
-    section.main p,
-    section.main li {
+    [data-testid="stMain"] p,
+    [data-testid="stMain"] li,
+    [data-testid="stMain"] label {
         color: #f7f1df !important;
     }
 
-    section.main a {
+    [data-testid="stMain"] a {
         color: #ffcc33 !important;
+    }
+
+    /* Tables inside main page */
+    [data-testid="stMain"] table {
+        color: #f7f1df !important;
+    }
+
+    [data-testid="stMain"] th,
+    [data-testid="stMain"] td {
+        color: #f7f1df !important;
     }
     </style>
     """,
