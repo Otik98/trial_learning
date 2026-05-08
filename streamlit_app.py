@@ -47,8 +47,8 @@ filtered = df[df["rank"] == selected_rank]
 #
 #    st.write("Artist:", best_song["Artist"])
 
-else:
-    st.warning("No song found for this rank.")
+#else:
+#    st.warning("No song found for this rank.")
 
-with st.expander("Show full dataset"):
-    st.dataframe(df)
+#with st.expander("Show full dataset"):
+#    st.dataframe(df)
