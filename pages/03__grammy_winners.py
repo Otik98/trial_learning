@@ -25,7 +25,7 @@ df["Year"] = pd.to_numeric(df["Year"], errors="coerce")
 df = df.dropna(subset=["Year"])
 df["Year"] = df["Year"].astype(int)
 
-# Optional: remove exact duplicates
+# Remove exact duplicates
 df = df.drop_duplicates(
     subset=["Year", "Category", "Winner", "Artist"]
 )
@@ -68,13 +68,14 @@ if not filtered.empty:
             st.metric("Ceremony", f"{int(row['Ceremony_Number'])}th")
 
         st.write("**Era:**", row["Era"])
+
         st.markdown(
             "**Dataset source:** "
             "[Kaggle — Grammy Award Winners 1959–2026]"
             "(https://www.kaggle.com/datasets/mafaqbhatti/grammy-award-winners-1959-2026/data)"
         )
 
-st.write("**Original source in dataset:**", row["Data_Source"])
+        st.write("**Original source in dataset:**", row["Data_Source"])
 
 else:
     st.warning("No winner found for this year/category.")
@@ -103,5 +104,6 @@ with st.expander("Show full Grammy Big Four dataset"):
 
 st.caption(
     "Dataset source: Kaggle — Grammy Award Winners 1959–2026. "
+    "The dataset lists Wikipedia as the original source for the collected Grammy records. "
     "This page uses the Big Four categories for educational purposes."
 )
