@@ -11,17 +11,54 @@ st.markdown(
     """
     <style>
     .stApp {
-        background-color: #fffaf2;
+        background:
+            radial-gradient(circle at top, rgba(180, 25, 25, 0.35), transparent 35%),
+            linear-gradient(135deg, #050505 0%, #120000 45%, #1a0f00 100%);
     }
 
     [data-testid="stSidebar"] {
-        background-color: #f1f3f6;
+        background: linear-gradient(180deg, #050505 0%, #160000 55%, #2b1a00 100%);
+        border-right: 2px solid #c9a227;
+    }
+
+    h1 {
+        color: #f5d76e !important;
+        text-shadow: 2px 2px 8px rgba(255, 0, 0, 0.45);
+    }
+
+    h2, h3 {
+        color: #f2c94c !important;
+    }
+
+    p, li, span, div, label {
+        color: #f7f1df !important;
+    }
+
+    .stAlert {
+        background-color: rgba(120, 0, 0, 0.35) !important;
+        border: 1px solid #c9a227 !important;
+        border-radius: 12px;
+    }
+
+    [data-testid="stTable"] {
+        background-color: rgba(0, 0, 0, 0.45);
+        border: 1px solid #c9a227;
+        border-radius: 12px;
+    }
+
+    img {
+        border-radius: 18px;
+        border: 2px solid #c9a227;
+        box-shadow: 0 0 25px rgba(201, 162, 39, 0.55);
+    }
+
+    a {
+        color: #ffcc33 !important;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
-
 # Sidebar logo
 st.sidebar.image("assets/mj_logo.png", width=240)
 
