@@ -14,6 +14,7 @@ def image_to_base64(path):
         return base64.b64encode(image_file.read()).decode()
 
 mj_image = image_to_base64("assets/Michael_Jackson_1984_(cropped).jpg")
+st.image("assets/Michael_Jackson_1984_(cropped).jpg", width=260)
 
 st.markdown(
     """
