@@ -11,6 +11,9 @@ st.set_page_config(
 # Load data
 df = pd.read_csv("data/michael_jackson_simple.csv")
 
+#link for the dataset:
+#https://kworb.net/spotify/artist/3fMbdgg4jU18AjLCKBhRSm_songs.html
+
 # Clean columns
 df["rank"] = pd.to_numeric(df["rank"], errors="coerce")
 df["streams"] = pd.to_numeric(df["streams"], errors="coerce")
