@@ -7,19 +7,22 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+col1, col2, col3 = st.columns([1, 2, 1])
 
-
-st.sidebar.image("assets/mj_logo.png", width=240)
-
-st.title("Grammy Winners Explorer")
-
-st.image("mj_star.jpg", width=330)
+with col2:
+    st.image("mj_star.jpg", width=330)
 
 st.markdown(
-    "Image: [Michael Jackson's star on the Hollywood Walk of Fame]"
-    "(https://commons.wikimedia.org/wiki/File:1993_walk_of_fame_michael_jackson.jpg) "
-    "by R-E-AL, licensed under "
-    "[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)."
+    """
+    <div style="text-align: center;">
+        Image:
+        <a href="https://commons.wikimedia.org/wiki/File:1993_walk_of_fame_michael_jackson.jpg">
+        Michael Jackson's star on the Hollywood Walk of Fame</a>
+        by R-E-AL, licensed under
+        <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>.
+    </div>
+    """,
+    unsafe_allow_html=True
 )
 
 st.info("Explore Grammy Big Four winners from 1959 to 2026.")
