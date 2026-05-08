@@ -13,7 +13,7 @@ st.sidebar.image("assets/mj_logo.png", width=240)
 
 st.title("Grammy Winners Explorer")
 
-st.image("assets/mj_star.jpg", width=330)
+st.image("mj_star.jpg", width=330)
 
 st.markdown(
     "Image: [Michael Jackson's star on the Hollywood Walk of Fame]"
