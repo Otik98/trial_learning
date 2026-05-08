@@ -1,4 +1,5 @@
 import streamlit as st
+import base64
 
 st.set_page_config(
     page_title="This Is It",
@@ -7,6 +8,12 @@ st.set_page_config(
 )
 
 st.sidebar.image("assets/mj_logo.png", width=240)
+
+def image_to_base64(path):
+    with open(path, "rb") as image_file:
+        return base64.b64encode(image_file.read()).decode()
+
+mj_image = image_to_base64("assets/Michael_Jackson_1984_(cropped).jpg")
 
 st.markdown(
     """
@@ -24,14 +31,24 @@ st.markdown(
 
     .final-box {
         text-align: center;
-        margin-top: 120px;
-        padding: 70px 40px;
+        margin-top: 80px;
+        padding: 55px 40px;
         border: 1px solid rgba(245, 215, 110, 0.5);
         border-radius: 30px;
-        background: rgba(0, 0, 0, 0.55);
+        background: rgba(0, 0, 0, 0.58);
         box-shadow:
             0 0 35px rgba(255, 204, 51, 0.25),
             0 0 70px rgba(180, 0, 0, 0.35);
+    }
+
+    .final-photo {
+        width: 260px;
+        border-radius: 26px;
+        border: 2px solid rgba(245, 215, 110, 0.75);
+        box-shadow:
+            0 0 25px rgba(245, 215, 110, 0.35),
+            0 0 55px rgba(180, 0, 0, 0.45);
+        margin-bottom: 30px;
     }
 
     .final-title {
@@ -56,18 +73,35 @@ st.markdown(
         margin-top: 35px;
         font-weight: 700;
     }
+
+    .photo-credit {
+        color: rgba(255, 244, 214, 0.65);
+        font-size: 0.85rem;
+        margin-top: 15px;
+    }
     </style>
     """,
     unsafe_allow_html=True
 )
 
 st.markdown(
-    """
+    f"""
     <div class="final-box">
+        <img class="final-photo" src="data:image/jpeg;base64,{mj_image}">
+        
         <div class="final-title">This Is It</div>
+        
         <div class="final-text">
             Это финальная страница моего проекта.<br>
             Спасибо за этот курс, за полученные знания и за возможность применить новые навыки на практике.
+        </div>
+
+        <div class="final-small">
+            Keep the music alive ✨
+        </div>
+
+        <div class="photo-credit">
+            Photo: White House Photo Office / Wikimedia Commons, Public Domain
         </div>
     </div>
     """,
