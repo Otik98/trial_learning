@@ -97,13 +97,4 @@ if not mj_rows.empty:
 else:
     st.info("No Michael Jackson rows found in this dataset.")
 
-st.divider()
 
-with st.expander("Show full Grammy Big Four dataset"):
-    st.dataframe(df, use_container_width=True)
-
-st.caption(
-    "Dataset source: Kaggle — Grammy Award Winners 1959–2026. "
-    "The dataset lists Wikipedia as the original source for the collected Grammy records. "
-    "This page uses the Big Four categories for educational purposes."
-)
