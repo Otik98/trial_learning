@@ -14,7 +14,7 @@ st.title("Michael Jackson Song Popularity Analysis")
 
 st.info("This app analyzes Michael Jackson songs using a Spotify dataset.")
 
-df = pd.read_csv("michael_jackson_simple.csv")
+df = pd.read_csv("data/michael_jackson_simple.csv")
 
 st.subheader("Dataset")
 st.dataframe(df)
