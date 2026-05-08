@@ -9,7 +9,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-st.sidebar.image("assets/mj_logo.png", width=160)
+st.sidebar.image("assets/mj_logo.png", width=200)
 
 # Load data
 df = pd.read_csv("data/michael_jackson_simple.csv")
