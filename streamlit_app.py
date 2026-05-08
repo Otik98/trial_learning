@@ -31,7 +31,7 @@ selected_rank = st.select_slider(
 filtered = df[df["rank"] == selected_rank]
 
 if not filtered.empty:
-    best_song = filtered.sort_values("Daily Streams", ascending=False).iloc[0]
+    best_song = filtered.sort_values("daily_streams", ascending=False).iloc[0]
 
     st.subheader(f"Best song in {selected_rank}")
 
