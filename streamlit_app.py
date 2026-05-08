@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 
+st.sidebar.markdown("### 📖 Biography")
+
 st.set_page_config(
     page_title="Michael Jackson Biography",
     layout="centered",
