@@ -7,10 +7,19 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# Sidebar logo
 st.sidebar.image("assets/mj_logo.png", width=240)
 
-
+# Main page
 st.title("Michael Jackson Biography")
+
+st.image("mj_1988.jpg", width=320)
+
+st.markdown(
+    "Photo: [Michael Jackson in 1988](https://commons.wikimedia.org/wiki/File:Michael_Jackson_in_1988.jpg) "
+    "by Zoran Veselinovic, licensed under "
+    "[CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/)."
+)
 
 st.header("Who was Michael Jackson?")
 
