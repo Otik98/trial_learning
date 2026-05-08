@@ -3,3 +3,7 @@ numpy
 pandas
 scikit-learn
 streamlit-player
+groq
+sentence-transformers
+faiss-cpu
+langchain-text-splitters
