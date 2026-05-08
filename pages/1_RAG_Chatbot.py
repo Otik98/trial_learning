@@ -112,18 +112,21 @@ try:
 
     st.markdown("### Ask your own question")
 
+    with st.form("rag_question_form"):
     user_question = st.text_input(
         "Type your question:",
         placeholder="Ask something based on the PDF documents...",
         label_visibility="collapsed"
     )
 
-    if st.button("Ask RAG Chatbot"):
-        if user_question.strip():
-            handle_user_query(user_question)
-        else:
-            st.warning("Please type a question first.")
+    submitted = st.form_submit_button("Ask RAG Chatbot")
 
+if submitted:
+    if user_question.strip():
+        handle_user_query(user_question)
+    else:
+        st.warning("Please type a question first.")
+        
 
 except Exception as e:
     st.error("RAG chatbot is not ready yet.")
