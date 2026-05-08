@@ -1,11 +1,10 @@
 import streamlit as st
 
-from rag_logic_mj import (
+from rag_logic_pdf import (
     load_models_and_build_index,
     retrieve_and_rerank,
     generate_answer
 )
-
 
 st.set_page_config(
     page_title="Michael Jackson RAG Chatbot",
