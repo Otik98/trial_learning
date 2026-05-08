@@ -10,34 +10,33 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    .stApp {
+    section.main {
         background:
             radial-gradient(circle at top, rgba(180, 25, 25, 0.35), transparent 35%),
             linear-gradient(135deg, #050505 0%, #120000 45%, #1a0f00 100%);
     }
 
-   
-    h1 {
+    [data-testid="stHeader"] {
+        background: rgba(0, 0, 0, 0);
+    }
+
+    section.main h1 {
         color: #f5d76e !important;
         text-shadow: 2px 2px 8px rgba(255, 0, 0, 0.45);
     }
 
-    h2, h3 {
+    section.main h2,
+    section.main h3 {
         color: #f2c94c !important;
     }
 
-    p, li, span, div, label {
+    section.main p,
+    section.main li {
         color: #f7f1df !important;
     }
 
-    a {
+    section.main a {
         color: #ffcc33 !important;
-    }
-
-    .stAlert {
-        background-color: rgba(120, 0, 0, 0.35) !important;
-        border: 1px solid #c9a227 !important;
-        border-radius: 12px;
     }
     </style>
     """,
