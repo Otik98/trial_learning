@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from streamlit_player import st_player
 
-st.set_page_config(page_title="Michael Jackson Project", layout="centered")
+st.set_page_config(page_title="Michael Jackson Project", layout="wide")
 
 st.title("Michael Jackson Song Finder")
 st.info("Choose a rank and find the most popular Michael Jackson song from the dataset.")
