@@ -46,12 +46,6 @@ st.markdown(
         border-radius: 12px;
     }
 
-    img {
-        border-radius: 18px;
-        border: 2px solid #c9a227;
-        box-shadow: 0 0 25px rgba(201, 162, 39, 0.55);
-    }
-
     a {
         color: #ffcc33 !important;
     }
