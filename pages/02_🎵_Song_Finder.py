@@ -311,8 +311,22 @@ try:
     if col3.button("How many GRAMMYs did he win?"):
         handle_user_query("How many GRAMMYs did Michael Jackson win?")
 
-    if prompt := st.chat_input("Ask something about Michael Jackson..."):
-        handle_user_query(prompt)
+    st.markdown("### Ask your own question")
+
+    user_question = st.text_input(
+        "Type your question:",
+        placeholder="Ask something about Michael Jackson...",
+        label_visibility="collapsed")
+
+
+    if st.button("Ask Michael Bot"):
+         if user_question.strip():
+             handle_user_query(user_question)
+         else:
+             st.warning("Please type a question first.")
+        
+    #if prompt := st.chat_input("Ask something about Michael Jackson..."):
+     #   handle_user_query(prompt)
 
 except Exception as e:
     st.error("RAG chatbot is not ready yet.")
