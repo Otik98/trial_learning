@@ -7,7 +7,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-st.sidebar.image("assets/mj_logo.png", width=160)
+st.sidebar.image("assets/mj_logo.png", width=240)
 
 
 st.title("Michael Jackson Biography")
