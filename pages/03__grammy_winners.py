@@ -1,1 +1,101 @@
+import streamlit as st
+import pandas as pd
 
+st.set_page_config(
+    page_title="Grammy Winners",
+    layout="centered",
+    initial_sidebar_state="expanded"
+)
+
+st.sidebar.image("assets/mj_logo.png", width=160)
+
+st.title("Grammy Winners Explorer")
+st.info("Explore Grammy Big Four winners from 1959 to 2026.")
+
+df = pd.read_csv("data/grammy_big_four.csv")
+
+# Clean columns
+df.columns = df.columns.str.strip()
+
+# Keep only winners
+df = df[df["Status"] == "Winner"]
+
+# Clean year
+df["Year"] = pd.to_numeric(df["Year"], errors="coerce")
+df = df.dropna(subset=["Year"])
+df["Year"] = df["Year"].astype(int)
+
+# Optional: remove exact duplicates
+df = df.drop_duplicates(
+    subset=["Year", "Category", "Winner", "Artist"]
+)
+
+# Sidebar controls
+st.sidebar.header("Grammy Explorer")
+
+selected_year = st.sidebar.slider(
+    "Choose Grammy year:",
+    min_value=int(df["Year"].min()),
+    max_value=int(df["Year"].max()),
+    value=1984,
+    step=1
+)
+
+categories = sorted(df["Category"].dropna().unique())
+
+selected_category = st.sidebar.selectbox(
+    "Choose category:",
+    categories
+)
+
+filtered = df[
+    (df["Year"] == selected_year) &
+    (df["Category"] == selected_category)
+]
+
+st.subheader(f"{selected_category} — {selected_year}")
+
+if not filtered.empty:
+    for _, row in filtered.iterrows():
+        st.success(row["Winner"])
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.metric("Artist", row["Artist"])
+
+        with col2:
+            st.metric("Ceremony", f"{int(row['Ceremony_Number'])}th")
+
+        st.write("**Era:**", row["Era"])
+        st.write("**Data source:**", row["Data_Source"])
+
+else:
+    st.warning("No winner found for this year/category.")
+
+st.divider()
+
+st.subheader("Michael Jackson Grammy highlight")
+
+mj_rows = df[
+    df["Artist"].astype(str).str.contains("Michael Jackson", case=False, na=False) |
+    df["Winner"].astype(str).str.contains("Michael Jackson", case=False, na=False)
+]
+
+if not mj_rows.empty:
+    st.dataframe(
+        mj_rows[["Year", "Category", "Winner", "Artist", "Ceremony_Number"]],
+        use_container_width=True
+    )
+else:
+    st.info("No Michael Jackson rows found in this dataset.")
+
+st.divider()
+
+with st.expander("Show full Grammy Big Four dataset"):
+    st.dataframe(df, use_container_width=True)
+
+st.caption(
+    "Dataset source: Kaggle — Grammy Award Winners 1959–2026. "
+    "This page uses the Big Four categories for educational purposes."
+)
