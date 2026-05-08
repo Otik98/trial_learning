@@ -4,7 +4,7 @@ from streamlit_player import st_player
 
 st.set_page_config(
     page_title="Michael Jackson Project",
-    layout="wide",
+    layout="centered",
     initial_sidebar_state="expanded"
 )
 
