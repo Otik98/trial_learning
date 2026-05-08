@@ -30,22 +30,22 @@ selected_rank = st.select_slider(
 
 filtered = df[df["rank"] == selected_rank]
 
-if not filtered.empty:
-    best_song = filtered.sort_values("daily_streams", ascending=False).iloc[0]
+#if not filtered.empty:
+#    best_song = filtered.sort_values("daily_streams", ascending=False).iloc[0]
 
-    st.subheader(f"Best song in {selected_rank}")
+#    st.subheader(f"Best song in {selected_rank}")
 
-    st.success(best_song["Title"])
+#    st.success(best_song["Title"])
 
-    col1, col2 = st.columns(2)
+#    col1, col2 = st.columns(2)
 
-    with col1:
-        st.metric("Daily Streams", int(best_song["daily_streams"]))
-
-    with col2:
-        st.metric("Rank", selected_rank)
-
-    st.write("Artist:", best_song["Artist"])
+#    with col1:
+#        st.metric("Daily Streams", int(best_song["daily_streams"]))
+#
+#    with col2:
+#        st.metric("Rank", selected_rank)
+#
+#    st.write("Artist:", best_song["Artist"])
 
 else:
     st.warning("No song found for this rank.")
