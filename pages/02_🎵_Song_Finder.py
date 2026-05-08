@@ -12,8 +12,8 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    /* MAIN BACKGROUND ONLY — sidebar is not touched */
-    [data-testid="stAppViewContainer"] {
+    /* MAIN BACKGROUND ONLY */
+    [data-testid="stMain"] {
         background:
             radial-gradient(circle at top center, rgba(255, 0, 0, 0.28), transparent 32%),
             radial-gradient(circle at bottom right, rgba(245, 215, 110, 0.22), transparent 35%),
@@ -24,7 +24,6 @@ st.markdown(
         background: rgba(0, 0, 0, 0);
     }
 
-    /* Main content area */
     [data-testid="stMainBlockContainer"] {
         background: rgba(0, 0, 0, 0.35);
         border: 1px solid rgba(245, 215, 110, 0.35);
@@ -33,8 +32,7 @@ st.markdown(
         box-shadow: 0 0 35px rgba(180, 25, 25, 0.35);
     }
 
-    /* Title */
-    [data-testid="stAppViewContainer"] h1 {
+    [data-testid="stMain"] h1 {
         color: #f5d76e !important;
         text-align: center;
         font-size: 3.4rem !important;
@@ -43,34 +41,31 @@ st.markdown(
             0 0 25px rgba(180, 25, 25, 0.55);
     }
 
-    [data-testid="stAppViewContainer"] h2,
-    [data-testid="stAppViewContainer"] h3 {
+    [data-testid="stMain"] h2,
+    [data-testid="stMain"] h3 {
         color: #ffcc33 !important;
         text-shadow: 0 0 10px rgba(180, 25, 25, 0.4);
     }
 
-    /* Normal text */
-    [data-testid="stAppViewContainer"] p,
-    [data-testid="stAppViewContainer"] li,
-    [data-testid="stAppViewContainer"] label {
+    [data-testid="stMain"] p,
+    [data-testid="stMain"] li,
+    [data-testid="stMain"] label {
         color: #f7f1df !important;
     }
 
-    [data-testid="stAppViewContainer"] a {
+    [data-testid="stMain"] a {
         color: #ffcc33 !important;
         font-weight: 700;
     }
 
-    /* Info / success / warning boxes */
-    [data-testid="stAlert"] {
+    [data-testid="stMain"] [data-testid="stAlert"] {
         background: rgba(90, 0, 0, 0.45) !important;
         border: 1px solid #c9a227 !important;
         border-radius: 16px !important;
         box-shadow: 0 0 18px rgba(201, 162, 39, 0.22);
     }
 
-    /* YouTube player */
-    iframe {
+    [data-testid="stMain"] iframe {
         border: 2px solid #c9a227 !important;
         border-radius: 22px !important;
         box-shadow:
@@ -78,32 +73,28 @@ st.markdown(
             0 0 45px rgba(180, 25, 25, 0.45);
     }
 
-    /* Divider */
-    hr {
+    [data-testid="stMain"] hr {
         border-color: rgba(245, 215, 110, 0.35) !important;
     }
 
-    /* Chat input */
-    [data-testid="stChatInput"] {
+    [data-testid="stMain"] [data-testid="stChatInput"] {
         background: rgba(0, 0, 0, 0.55) !important;
         border: 1px solid rgba(245, 215, 110, 0.45) !important;
         border-radius: 18px !important;
         box-shadow: 0 0 18px rgba(201, 162, 39, 0.25);
     }
 
-    [data-testid="stChatInput"] textarea {
-        color: #f7f1df !important;
+    [data-testid="stMain"] [data-testid="stChatInput"] textarea {
+        color: #111827 !important;
     }
 
-    /* Expander */
-    [data-testid="stExpander"] {
+    [data-testid="stMain"] [data-testid="stExpander"] {
         background: rgba(0, 0, 0, 0.45) !important;
         border: 1px solid rgba(245, 215, 110, 0.35) !important;
         border-radius: 16px !important;
     }
 
-    /* Metrics */
-    [data-testid="stMetric"] {
+    [data-testid="stMain"] [data-testid="stMetric"] {
         background: rgba(0, 0, 0, 0.45);
         border: 1px solid rgba(245, 215, 110, 0.45);
         padding: 15px;
@@ -111,16 +102,34 @@ st.markdown(
         box-shadow: 0 0 15px rgba(201, 162, 39, 0.22);
     }
 
-    [data-testid="stMetricValue"] {
+    [data-testid="stMain"] [data-testid="stMetricValue"] {
         color: #f5d76e !important;
+    }
+
+    [data-testid="stMain"] .stButton > button {
+        background: linear-gradient(135deg, #120000 0%, #050505 100%) !important;
+        color: #f5d76e !important;
+        border: 1px solid #c9a227 !important;
+        border-radius: 14px !important;
+        box-shadow: 0 0 18px rgba(201, 162, 39, 0.35);
+        font-weight: 700 !important;
+    }
+
+    [data-testid="stMain"] .stButton > button p {
+        color: #f5d76e !important;
+        font-weight: 700 !important;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-
 st.sidebar.image("assets/mj_logo.png", width=240)
+
+st.sidebar.markdown(
+    '<div class="mj-glow">Michael<br>Jackson</div>',
+    unsafe_allow_html=True
+)
 
 # Load data
 df = pd.read_csv("data/michael_jackson_simple.csv")
