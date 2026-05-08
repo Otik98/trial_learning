@@ -9,6 +9,7 @@ st.set_page_config(
 
 st.sidebar.image("assets/mj_logo.png", width=160)
 
+
 st.title("Michael Jackson Biography")
 
 st.info(
