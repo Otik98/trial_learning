@@ -16,11 +16,7 @@ st.markdown(
             linear-gradient(135deg, #050505 0%, #120000 45%, #1a0f00 100%);
     }
 
-    [data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #050505 0%, #160000 55%, #2b1a00 100%);
-        border-right: 2px solid #c9a227;
-    }
-
+   
     h1 {
         color: #f5d76e !important;
         text-shadow: 2px 2px 8px rgba(255, 0, 0, 0.45);
