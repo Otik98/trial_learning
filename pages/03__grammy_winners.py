@@ -68,7 +68,13 @@ if not filtered.empty:
             st.metric("Ceremony", f"{int(row['Ceremony_Number'])}th")
 
         st.write("**Era:**", row["Era"])
-        st.write("**Data source:**", row["Data_Source"])
+        st.markdown(
+            "**Dataset source:** "
+            "[Kaggle — Grammy Award Winners 1959–2026]"
+            "(https://www.kaggle.com/datasets/mafaqbhatti/grammy-award-winners-1959-2026/data)"
+        )
+
+st.write("**Original source in dataset:**", row["Data_Source"])
 
 else:
     st.warning("No winner found for this year/category.")
