@@ -7,6 +7,111 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+st.markdown(
+    """
+    <style>
+    /* Main background */
+    .stApp {
+        background:
+            radial-gradient(circle at top center, rgba(245, 215, 110, 0.30), transparent 30%),
+            radial-gradient(circle at bottom right, rgba(180, 0, 0, 0.32), transparent 35%),
+            linear-gradient(135deg, #020202 0%, #170000 45%, #050505 100%);
+    }
+
+    [data-testid="stHeader"] {
+        background: rgba(0, 0, 0, 0);
+    }
+
+    /* Main content card */
+    .block-container {
+        background:
+            linear-gradient(145deg, rgba(0, 0, 0, 0.94), rgba(55, 0, 0, 0.90), rgba(10, 6, 0, 0.94)) !important;
+        border: 1px solid rgba(245, 215, 110, 0.55);
+        border-radius: 30px;
+        padding: 3rem 4rem !important;
+        box-shadow:
+            0 0 35px rgba(255, 204, 51, 0.25),
+            0 0 70px rgba(180, 0, 0, 0.35);
+    }
+
+    /* Main title */
+    .block-container h1 {
+        color: #f5d76e !important;
+        text-align: center;
+        font-size: 3.4rem !important;
+        text-shadow:
+            0 0 12px rgba(245, 215, 110, 0.75),
+            0 0 28px rgba(255, 0, 0, 0.65);
+    }
+
+    .block-container h2,
+    .block-container h3 {
+        color: #ffcc33 !important;
+        text-shadow: 0 0 12px rgba(180, 25, 25, 0.55);
+    }
+
+    /* Text */
+    .block-container p,
+    .block-container li,
+    .block-container label {
+        color: #fff4d6 !important;
+        font-weight: 500;
+    }
+
+    .block-container a {
+        color: #ffd84d !important;
+        font-weight: 800;
+    }
+
+    /* Star image */
+    .block-container img {
+        border: 2px solid #c9a227;
+        border-radius: 22px;
+        box-shadow:
+            0 0 25px rgba(245, 215, 110, 0.45),
+            0 0 55px rgba(180, 0, 0, 0.45);
+    }
+
+    /* Info / success / warning boxes */
+    .block-container [data-testid="stAlert"] {
+        background: rgba(120, 0, 0, 0.55) !important;
+        border: 1px solid #c9a227 !important;
+        border-radius: 16px !important;
+        box-shadow: 0 0 18px rgba(201, 162, 39, 0.30);
+    }
+
+    /* Metrics */
+    .block-container [data-testid="stMetric"] {
+        background: rgba(0, 0, 0, 0.55);
+        border: 1px solid rgba(245, 215, 110, 0.45);
+        padding: 15px;
+        border-radius: 18px;
+        box-shadow: 0 0 15px rgba(201, 162, 39, 0.25);
+    }
+
+    .block-container [data-testid="stMetricValue"] {
+        color: #f5d76e !important;
+    }
+
+    .block-container [data-testid="stMetricLabel"] {
+        color: #fff4d6 !important;
+    }
+
+    /* Dataframe */
+    .block-container [data-testid="stDataFrame"] {
+        border: 1px solid rgba(245, 215, 110, 0.45);
+        border-radius: 18px;
+        box-shadow: 0 0 18px rgba(201, 162, 39, 0.25);
+    }
+
+    hr {
+        border-color: rgba(245, 215, 110, 0.45) !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 st.sidebar.image("assets/mj_logo.png", width=240)
 
 st.title("Grammy Winners Explorer")
