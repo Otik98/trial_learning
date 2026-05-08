@@ -71,23 +71,25 @@ st.markdown(
     margin-bottom: 25px;
 }
 
-.final-text {
+.final-quote {
     color: #fff4d6;
-    font-size: 1.4rem;
+    font-size: 1.35rem;
+    font-style: italic;
     line-height: 1.7;
+    margin-top: 20px;
 }
 
-.final-small {
+.final-quote span {
     color: #ffcc33;
-    font-size: 1.2rem;
-    margin-top: 35px;
+    font-size: 1rem;
+    font-style: normal;
     font-weight: 700;
 }
 
 .photo-credit {
     color: rgba(255, 244, 214, 0.65);
     font-size: 0.85rem;
-    margin-top: 18px;
+    margin-top: 28px;
 }
 </style>
     """,
@@ -96,7 +98,7 @@ st.markdown(
 
 st.markdown(
     f"""
-<div class="final-box"><img class="final-photo" src="data:image/jpeg;base64,{mj_image}" alt="Michael Jackson photo"/><div class="final-title">This Is It</div><div class="final-text">Это финальная страница моего проекта.<br>Спасибо за этот курс, за полученные знания и за возможность применить новые навыки на практике.</div><div class="final-small">Keep the music alive ✨</div><div class="final-quote">“This is our last and final tour...<br>You’ve all been wonderful, and we love you all.”<br><span>— Michael Jackson, Victory Tour, 1984</span></div><div class="photo-credit">Photo: White House Photo Office / Wikimedia Commons, Public Domain</div></div>
+<div class="final-box"><img class="final-photo" src="data:image/jpeg;base64,{mj_image}" alt="Michael Jackson photo"/><div class="final-title">This Is It</div><div class="final-quote">“This is our last and final tour...<br>You’ve all been wonderful, and we love you all.”<br><span>— Michael Jackson, Victory Tour, 1984</span></div><div class="photo-credit">Photo: White House Photo Office / Wikimedia Commons, Public Domain</div></div>
     """,
     unsafe_allow_html=True
 )
