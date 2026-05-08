@@ -1,24 +1,101 @@
-Title,Artist,Year,Popularity
-Billie Jean,Michael Jackson,1982,81
-Smooth Criminal - 2012 Remaster,Michael Jackson,1987,76
-Don't Stop 'Til You Get Enough - Single Version,Michael Jackson,1979,74
-Rock with You - Single Version,Michael Jackson,1979,73
-The Way You Make Me Feel - 2012 Remaster,Michael Jackson,1987,72
-P.Y.T. (Pretty Young Thing),Michael Jackson,1982,71
-Love Never Felt So Good,Michael Jackson,2014,70
-They Don't Care About Us,Michael Jackson,1995,69
-Thriller,Michael Jackson,2017,69
-Bad - 2012 Remaster,Michael Jackson,1987,68
-Heal the World,Michael Jackson,1991,68
-Human Nature,Michael Jackson,1982,65
-Man in the Mirror,Michael Jackson,1995,64
-Wanna Be Startin' Somethin',Michael Jackson,1982,64
-Black or White - Single Version,Michael Jackson,2005,64
-Earth Song,Michael Jackson,1995,63
-Off the Wall,Michael Jackson,1979,62
-Beat It,Michael Jackson,1995,60
-Liberian Girl - 2012 Remastered Version,Michael Jackson,1987,59
-Stranger in Moscow,Michael Jackson,1995,58
-Dirty Diana,Michael Jackson,2003,55
-Will You Be There - Single Version,Michael Jackson,2005,53
-Ben - Single Version,Michael Jackson,1972,53
+rank,name,streams,daily_streams
+1,Billie Jean,2702995457,5578322
+2,Beat It,1742354034,4399313
+3,Smooth Criminal - 2012 Remaster,1098635010,2560124
+4,Thriller,888457000,1952410
+5,Rock With You,887748566,1741605
+6,Don't Stop 'Til You Get Enough,756650876,3248105
+7,The Way You Make Me Feel,740881757,1855736
+8,Chicago,633074555,1881884
+9,Man in the Mirror,626058448,1242711
+10,P.Y.T. (Pretty Young Thing),616671136,1340324
+11,They Don't Care About Us,609162958,2061394
+12,Don’t Matter To Me (with Michael Jackson),580813400,377920
+13,Remember the Time,548000796,1378120
+14,Bad,514444948,2182076
+15,Black or White,496935721,891399
+16,Love Never Felt So Good,463833916,455406
+17,Dirty Diana - 2012 Remaster,434024058,2083694
+18,Human Nature,339485464,2966299
+19,Heal the World,308556476,551403
+20,Wanna Be Startin' Somethin',285303333,1246756
+21,You Rock My World,265557494,1211702
+22,You Are Not Alone,238657854,641392
+23,Earth Song,217239651,688617
+24,I Just Can't Stop Loving You,215167146,279683
+25,Heaven Can Wait,209936897,998769
+26,The Girl Is Mine (with Paul McCartney),191380459,415380
+27,Off the Wall,184135995,571872
+28,Love Never Felt So Good,183517049,151930
+29,Say Say Say,183502508,300583
+30,Hold My Hand (with Akon),153583589,144808
+31,Thriller - Single Version,150480775,44679
+32,Leave Me Alone - 2012 Remaster,146235211,348862
+33,Liberian Girl - 2012 Remastered Version,143124161,499556
+34,You Rock My World - Radio Edit,131937916,170609
+35,Baby Be Mine,123870408,354910
+36,Black or White - Single Version,118208176,102750
+37,Scream,111378729,250061
+38,Ben - Single Version,110087007,175032
+39,Blood on the Dance Floor,105027817,343640
+40,The Lady in My Life,88703729,222272
+41,Dangerous,87793821,337106
+42,Give In to Me,84420137,112076
+43,Shake Your Body (Down to the Ground) - Remastered Single Version,84402723,40445
+44,Jam,84273372,146596
+45,Workin' Day and Night,80808182,494513
+46,Butterflies,79461087,182652
+47,Rockin' Robin,77794397,112901
+48,In the Closet,76476174,358634
+49,Who Is It,76236737,234683
+50,A Place With No Name,72045512,146844
+51,She's Out Of My Life,70788676,128347
+52,Stranger in Moscow,70786562,155201
+53,I Can't Help It,70570506,207957
+54,Another Part of Me - 2012 Remaster,69076066,197117
+55,We Are The World - Live,68864609,11957
+56,Say Say Say (feat. Paul McCartney & Michael Jackson),68141665,13422
+57,Don't Stop 'Til You Get Enough - 2003 Edit,61061691,96245
+58,The Way You Make Me Feel - Single Version,60941799,23169
+59,Will You Be There - Single Version,59718582,133589
+60,You Rock My World,58329338,421832
+61,Ghosts,58103485,177990
+62,Slave to the Rhythm,51770806,123124
+63,Speed Demon - 2012 Remaster,44032268,155414
+64,Will You Be There,42354035,51778
+65,Got To Be There - Single Version,39199859,29094
+66,One Day In Your Life,38308682,42998
+67,Break of Dawn,37573636,165125
+68,Come Together,36217392,116240
+69,This Is It,35763305,36252
+70,Unbreakable,35108115,148694
+71,Rock with You - Single Version,34955502,27137
+72,Ain't No Sunshine,33158963,28780
+73,Get on the Floor,33140926,185027
+74,You Are Not Alone - Single Version,31942563,19520
+75,Earth Song - Radio Edit,31913219,66493
+76,I Wanna Be Where You Are,31514132,29418
+77,Blue Gangsta,31040627,149106
+78,Loving You,30604467,36731
+79,Thriller (Steve Aoki Midnight Hour Remix),30167447,7915
+80,Hollywood Tonight,28592874,62766
+81,Xscape,26170341,25055
+82,Girlfriend,23932531,73253
+83,Love Never Felt So Good (Original Version),23247621,23017
+84,Just Good Friends - 2012 Remaster,23126755,76151
+85,Little Christmas Tree,22097448,109
+86,Whatever Happens,21218637,101752
+87,Why You Wanna Trip on Me,21054678,52462
+88,It's the Falling in Love,20566153,59156
+89,Gone Too Soon,20144183,20643
+90,Burn This Disco Out,18533648,54089
+91,Wanna Be Startin' Somethin' - Single Version,17001965,21832
+92,Michael Jackson x Mark Ronson: Diamonds are Invincible,16873333,4138
+93,Speechless,16688133,31681
+94,2 Bad,16414439,57834
+95,Love Never Felt So Good - Fedde Le Grand Remix Radio Edit,15952992,1138
+96,Smooth Criminal - Immortal Version,15319578,7106
+97,They Don't Care About Us,15232405,2140
+98,Smile,15050404,41269
+99,(I Like) The Way You Love Me,14477595,19713
+100,Tabloid Junkie,14237665,38817
