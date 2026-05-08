@@ -9,7 +9,7 @@ st.set_page_config(
 
 
 
-st.sidebar.image("assets/mj_logo.png", width=160)
+st.sidebar.image("assets/mj_logo.png", width=240)
 
 st.title("Grammy Winners Explorer")
 st.info("Explore Grammy Big Four winners from 1959 to 2026.")
