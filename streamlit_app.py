@@ -98,7 +98,3 @@ st.markdown(
 )
 
 st.divider()
-
-st.success(
-    "Open the Song Finder page from the sidebar to explore songs, streams, videos, and the chatbot."
-)
