@@ -91,6 +91,29 @@ st.divider()
 st.subheader("Project data sources")
 
 st.markdown(
+    "- **Spotify artist page:** "
+    "[Michael Jackson on Spotify](https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm)"
+)
+
+st.markdown(
+    "- **Spotify ranking and streams:** "
+    "[Kworb — Michael Jackson Spotify Songs](https://kworb.net/spotify/artist/3fMbdgg4jU18AjLCKBhRSm_songs.html)"
+)
+
+st.markdown(
+    "- **Song/video data:** YouTube official Michael Jackson videos and Spotify stream ranking."
+)
+
+articles = pd.read_csv("data/mj_articles.csv")
+
+with st.expander("Sources used by the chatbot"):
+    for _, row in articles[["title", "url"]].drop_duplicates().iterrows():
+        st.markdown(f"- [{row['title']}]({row['url']})")
+
+st.divider()
+st.subheader("Project data sources")
+
+st.markdown(
     "- **Spotify ranking and streams:** "
     "[Kworb — Michael Jackson Spotify Songs](https://kworb.net/spotify/artist/3fMbdgg4jU18AjLCKBhRSm_songs.html)"
 )
