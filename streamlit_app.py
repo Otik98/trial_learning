@@ -59,6 +59,49 @@ st.markdown(
     [data-testid="stMain"] td {
         color: #f7f1df !important;
     }
+        .hero-subtitle {
+        color: #ffcc33;
+        font-size: 1.35rem;
+        font-weight: 600;
+        margin-top: -0.5rem;
+        margin-bottom: 0.8rem;
+        text-shadow: 1px 1px 8px rgba(255, 204, 51, 0.35);
+    }
+
+    .hero-description {
+        color: #f7f1df;
+        font-size: 1.05rem;
+        line-height: 1.6;
+        max-width: 720px;
+        margin-bottom: 1.2rem;
+    }
+
+    .signature-line {
+        color: #f5d76e;
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        margin-bottom: 1.5rem;
+    }
+
+    .feature-card {
+        background: rgba(255, 204, 51, 0.08);
+        border: 1px solid rgba(255, 204, 51, 0.35);
+        border-radius: 16px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .feature-card h4 {
+        color: #ffcc33;
+        margin-bottom: 0.3rem;
+    }
+
+    .feature-card p {
+        color: #f7f1df;
+        font-size: 0.95rem;
+        margin-bottom: 0;
+    }
     </style>
     """,
     unsafe_allow_html=True
@@ -70,6 +113,24 @@ st.sidebar.image("assets/mj_logo.png", width=240)
 # Main page
 st.title("Michael Jackson Biography")
 
+st.markdown(
+    """
+    <div class="hero-subtitle">
+        The King of Pop Experience
+    </div>
+
+    <div class="hero-description">
+        Step into the world of Michael Jackson and explore his life, music,
+        performances, achievements, and legacy through an interactive Streamlit experience.
+    </div>
+
+    <div class="signature-line">
+        Music. Dance. Legacy.
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
 st.image("mj_1988.jpg", width=320)
 
 st.markdown(
@@ -77,6 +138,52 @@ st.markdown(
     "by Zoran Veselinovic, licensed under "
     "[CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/)."
 )
+
+st.markdown("### What can you explore here?")
+
+col1, col2 = st.columns(2)
+
+with col1:
+    st.markdown(
+        """
+        <div class="feature-card">
+            <h4>Biography</h4>
+            <p>Learn about Michael Jackson’s life, career, and global influence.</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.markdown(
+        """
+        <div class="feature-card">
+            <h4>Famous Songs</h4>
+            <p>Discover some of his most iconic songs and albums.</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+with col2:
+    st.markdown(
+        """
+        <div class="feature-card">
+            <h4>Music Data</h4>
+            <p>Explore song information, rankings, and music-related data.</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.markdown(
+        """
+        <div class="feature-card">
+            <h4>Chatbot</h4>
+            <p>Ask questions and interact with a simple knowledge-based chatbot.</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 st.header("Who was Michael Jackson?")
 
